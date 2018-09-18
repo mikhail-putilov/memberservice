@@ -3,7 +3,7 @@ package io.github.musius.member_service.model;
 public class BaseEntity<T> {
     protected T id;
 
-    public BaseEntity(T id) {
+    protected BaseEntity(T id) {
         this.id = id;
     }
 

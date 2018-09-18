@@ -8,6 +8,7 @@ public class Member extends BaseEntity<Long> {
     private ZonedDateTime dateOfBirth;
     private String postalCode;
 
+    // for spring:
     public Member() {
         super(null);
     }

@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>contract-rest-service</artifactId>
+    <groupId>ru.github.musius</groupId>
+    <artifactId>member-service</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <parent>
@@ -76,7 +76,7 @@
 				<version>${spring-cloud-contract.version}</version>
 				<extensions>true</extensions>
                 <configuration>
-                    <baseClassForTests>io.github.musius.member_service.BaseMvc</baseClassForTests>
+                    <baseClassForTests>io.github.musius.member_service.BaseMemberServiceMvcTest</baseClassForTests>
                 </configuration>
 			</plugin>
 

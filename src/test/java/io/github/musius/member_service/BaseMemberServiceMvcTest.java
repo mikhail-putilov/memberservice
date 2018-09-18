@@ -13,8 +13,8 @@ import org.springframework.web.context.WebApplicationContext;
 import java.time.ZonedDateTime;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
-public class BaseMvc {
+@SpringBootTest(classes = MemberServiceApplication.class)
+public abstract class BaseMemberServiceMvcTest {
     @Autowired
     private MemberRepository memberRepository;
 
