@@ -1,0 +1,20 @@
+POST http://localhost:8084/member
+Accept: application/json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-cache
+
+{
+  "firstName": "Joe1",
+  "lastName": "Dough",
+  "dateOfBirth": "2007-12-03T10:15:30+01:00",
+  "postalCode": "350454"
+}
+
+###
+
+GET http://localhost:8085/member/1
+Accept: application/json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-cache
+
+###
