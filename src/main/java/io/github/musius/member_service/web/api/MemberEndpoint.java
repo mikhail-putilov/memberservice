@@ -3,12 +3,15 @@ package io.github.musius.member_service.web.api;
 import io.github.musius.member_service.model.Member;
 import io.github.musius.member_service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -65,5 +68,11 @@ public class MemberEndpoint {
     public ResponseEntity<Void> deleteMember(@PathVariable("id") Long id) {
         memberService.deleteMemberById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/member")
+    public ResponseEntity<List<Member>> getAllUsers(Pageable pageable) {
+        final Page<Member> page = memberService.getAllMembers(pageable);
+        return ResponseEntity.ok(page.getContent());
     }
 }

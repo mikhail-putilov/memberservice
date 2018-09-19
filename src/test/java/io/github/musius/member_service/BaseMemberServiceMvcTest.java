@@ -23,16 +23,16 @@ public abstract class BaseMemberServiceMvcTest {
 
     @Before
     public void setup() {
-        memberRepository.createMember(new Member(null, "Joe", "Dough",
+        memberRepository.save(new Member(1L, "Joe", "Dough",
                 ZonedDateTime.parse("2001-12-03T10:15:30+01:00[Europe/Paris]"),
                 "350451"));
-        memberRepository.createMember(new Member(null, "Joe2", "Dough3",
+        memberRepository.save(new Member(2L, "Joe2", "Dough3",
                 ZonedDateTime.parse("2002-12-03T10:15:30+01:00[Europe/Paris]"),
                 "350452"));
-        memberRepository.createMember(new Member(null, "Joe3", "Dough3",
+        memberRepository.save(new Member(3L, "Joe3", "Dough3",
                 ZonedDateTime.parse("2003-12-03T10:15:30+01:00[Europe/Paris]"),
                 "350453"));
-        memberRepository.createMember(new Member(null, "Joe4", "Dough4",
+        memberRepository.save(new Member(4L, "Joe4", "Dough4",
                 ZonedDateTime.parse("2004-12-03T10:15:30+01:00[Europe/Paris]"),
                 "350454"));
         RestAssuredMockMvc.webAppContextSetup(applicationContext);
