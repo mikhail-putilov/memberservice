@@ -26,6 +26,7 @@
         <spring-cloud-contract.version>1.2.1.RELEASE</spring-cloud-contract.version>
         <dockerfile-maven-version>1.4.4</dockerfile-maven-version>
         <spring-data-hazelcast.version>2.0</spring-data-hazelcast.version>
+        <problem.version>0.22.0</problem.version>
     </properties>
 
     <dependencies>
@@ -55,6 +56,16 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem</artifactId>
+            <version>${problem.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>jackson-datatype-problem</artifactId>
+            <version>${problem.version}</version>
         </dependency>
         <!--tests:-->
         <dependency>

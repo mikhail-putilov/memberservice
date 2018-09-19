@@ -2,6 +2,8 @@ package io.github.musius.member_service.web.api;
 
 import io.github.musius.member_service.model.Member;
 import io.github.musius.member_service.service.MemberService;
+import io.github.musius.member_service.web.api.errors.MemberIdsDoNotMatchProblem;
+import io.github.musius.member_service.web.api.errors.NewMemberHasAssignedIdProblem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -44,7 +47,7 @@ public class MemberEndpoint {
     @PostMapping("/member")
     public ResponseEntity<Member> createNewMember(@RequestBody Member member) throws URISyntaxException {
         if (member.getId() != null) {
-            throw new IllegalArgumentException("New members cannot have assigned id");
+            throw new NewMemberHasAssignedIdProblem(member.getId());
         }
         Member created = memberService.createMember(member);
         return ResponseEntity.created(new URI("/member/" + created.getId()))
@@ -53,15 +56,11 @@ public class MemberEndpoint {
 
     @PutMapping("/member/{id}")
     public ResponseEntity<Member> updateMember(@PathVariable("id") Long id, @RequestBody Member member) {
-        if (member.getId() == null) {
-            throw new IllegalArgumentException("Cannot update member without given id");
+        if (!Objects.equals(id, member.getId())) {
+            throw new MemberIdsDoNotMatchProblem(id, member.getId());
         }
-        if (!member.getId().equals(id)) {
-            throw new IllegalArgumentException("Id cannot be changed");
-        }
-        Optional<Member> updated = memberService.updateMember(member);
-        return updated.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Member updated = memberService.updateMember(member);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/member/{id}")

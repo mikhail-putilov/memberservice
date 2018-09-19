@@ -2,6 +2,7 @@ package io.github.musius.member_service.service;
 
 import io.github.musius.member_service.model.Member;
 import io.github.musius.member_service.respository.MemberRepository;
+import io.github.musius.member_service.web.api.errors.MemberIdAlreadyUsedProblem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,9 +28,10 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    public Optional<Member> updateMember(Member member) {
+    public Member updateMember(Member member) {
         return memberRepository.findById(member.getId())
-                .map(found -> memberRepository.save(member));
+                .map(found -> memberRepository.save(member))
+                .orElseThrow(() -> new MemberIdAlreadyUsedProblem(member.getId()));
     }
 
     public void deleteMemberById(long id) {
