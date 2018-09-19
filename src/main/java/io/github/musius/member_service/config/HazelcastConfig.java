@@ -6,12 +6,14 @@ import com.hazelcast.core.IdGenerator;
 import io.github.musius.member_service.model.Member;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.hazelcast.repository.config.EnableHazelcastRepositories;
 
 import java.util.Map;
 
 // Intellij IDEA doesn't recognize HazelcastAutoConfiguration. We need to explicitly mute it:
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Configuration
+@EnableHazelcastRepositories(basePackages={"io.github.musius.member_service.respository"})
 public class HazelcastConfig {
     @Bean
     public Config config() {

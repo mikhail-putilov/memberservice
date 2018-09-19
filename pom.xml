@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.github.musius</groupId>
     <artifactId>member-service</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <packaging>war</packaging>
 
     <parent>
@@ -16,7 +17,7 @@
     <scm>
         <developerConnection>scm:git:git://github.com/musius/memberservice</developerConnection>
         <url>https://github.com/musius/memberservice</url>
-        <tag>member-service-0.1.0</tag>
+        <tag>member-service-0.1.1</tag>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,12 +26,25 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <spring-cloud-contract.version>1.2.1.RELEASE</spring-cloud-contract.version>
         <dockerfile-maven-version>1.4.4</dockerfile-maven-version>
+        <spring-data-hazelcast.version>2.0</spring-data-hazelcast.version>
+        <problem.version>0.22.0</problem.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>spring-data-hazelcast</artifactId>
+            <version>${spring-data-hazelcast.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.hazelcast</groupId>
+                    <artifactId>hazelcast</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -43,6 +57,16 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem</artifactId>
+            <version>${problem.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>jackson-datatype-problem</artifactId>
+            <version>${problem.version}</version>
         </dependency>
         <!--tests:-->
         <dependency>

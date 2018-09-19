@@ -1,4 +1,4 @@
-POST http://localhost:8084/member
+POST http://localhost:8080/member
 Accept: application/json;charset=UTF-8
 Content-Type: application/json;charset=UTF-8
 Cache-Control: no-cache
@@ -12,7 +12,14 @@ Cache-Control: no-cache
 
 ###
 
-GET http://localhost:8085/member/1
+GET http://localhost:8080/member/1
+Accept: application/json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/member?page=0&size=10&sort=id
 Accept: application/json;charset=UTF-8
 Content-Type: application/json;charset=UTF-8
 Cache-Control: no-cache
