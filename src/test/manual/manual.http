@@ -25,3 +25,18 @@ Content-Type: application/json;charset=UTF-8
 Cache-Control: no-cache
 
 ###
+
+POST http://localhost:8080/member
+Content-Type: application/xml;charset=UTF-8
+Accept: application/xml;charset=UTF-8
+Cache-Control: no-cache
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<member>
+    <firstName>Joe</firstName>
+    <lastName>Dough</lastName>
+    <dateOfBirth>2007-12-03T10:15:30+01:00</dateOfBirth>
+    <postalCode>350454</postalCode>
+</member>
+
+###
