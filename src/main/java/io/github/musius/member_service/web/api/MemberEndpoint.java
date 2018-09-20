@@ -18,17 +18,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(
-        consumes = {
-                MediaType.APPLICATION_JSON_VALUE,
-                MediaType.APPLICATION_JSON_UTF8_VALUE,
-                MediaType.APPLICATION_XML_VALUE
-        },
-        produces = {
-                MediaType.APPLICATION_JSON_VALUE,
-                MediaType.APPLICATION_JSON_UTF8_VALUE,
-                MediaType.APPLICATION_XML_VALUE
-        })
+@RequestMapping
 public class MemberEndpoint {
     private final MemberService memberService;
 
