@@ -1,6 +1,6 @@
 version: '3'
 services:
   node:
-    image: musius/member-service:0.2.0
+    image: musius/member-service:0.2.1-SNAPSHOT
     ports:
         - 8080-8090:8080
