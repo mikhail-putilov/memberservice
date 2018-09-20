@@ -5,7 +5,7 @@
 
     <groupId>ru.github.musius</groupId>
     <artifactId>member-service</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.2.0</version>
     <packaging>war</packaging>
 
     <parent>
@@ -17,6 +17,7 @@
     <scm>
         <developerConnection>scm:git:git://github.com/musius/memberservice</developerConnection>
         <url>https://github.com/musius/memberservice</url>
+        <tag>member-service-0.2.0</tag>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
